@@ -10,15 +10,10 @@ import datetime
 
 
 class MySqlOperator(object):
-    """SQL日志工具
-    """
     connectPool = dict()
 
     @staticmethod
     def get_conn(host, port, user, passwd, db):
-        '''
-            kwargs: host, port, user, passwd, db, charset
-        '''
         connSign = "%s:%s|%s@%s|%s" % (host, port, user, passwd, db)
         if connSign in MySqlOperator.connectPool:
             return  MySqlOperator.connectPool[connSign]
